@@ -1,7 +1,7 @@
 'use strict';
 
 let lowPoint  = 256310;
-let highPonit = 732736;
+let highPoint = 732736;
 
 let isNotDecrease = function(password){
     let array = Array.from(password.toString()).map(Number)
@@ -42,7 +42,7 @@ let containGroupPairDigigts = function(password){
 
 let matchPassword = []
 
-for (let i = lowPoint; i < highPonit; i++) {
+for (let i = lowPoint; i < highPoint; i++) {
     if(isNotDecrease(i) && containGroupPairDigigts(i)){
         // console.log('match',i);
         matchPassword.push(i);
