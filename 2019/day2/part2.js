@@ -5,14 +5,13 @@ let input = [1,0,0,3,1,1,2,3,1,3,4,3,1,5,0,3,2,9,1,19,1,19,5,23,1,23,5,27,2,27,1
 // let verb = 0;
 // let noun = 0;
 
-
-for (let noun = 0; noun < 100; noun++) {
+mainloop: for (let noun = 0; noun < 100; noun++) {
     for (let verb = 0; verb < 100; verb++) {
         let  memory = [...input];
         //restoring computer
         memory[1] = noun
         memory[2] = verb
-        loop1: for (let i = 0; i < memory.length; i += 4) {
+        innerloop: for (let i = 0; i < memory.length; i += 4) {
             const opcode = memory[i];
             if(opcode === 1){
                 let value = memory[memory[i+1]] + memory[memory[i+2]];
@@ -25,11 +24,12 @@ for (let noun = 0; noun < 100; noun++) {
                     console.log(`result found verb - ${verb} nount - ${noun}`)
                     let res =  100 * noun + verb
                     console.log('answer', res); 
+                    break mainloop;
                 }
-                break loop1;
+                break innerloop;
             } else{
                 console.error('unknown opcode', i);
-                break loop1;
+                break innerloop;
             }
         }        
     }

@@ -15,9 +15,9 @@ rl.on('line', function (line) {
     result += fuel;
     while (fuel > 0){
         fuel = Math.floor(fuel/3) - 2;
-        result += fuel < 0 ? 0 : fuel;
+        result += Math.max(0, fuel);
     }
 });
 rl.on('close', function (line) {
-    console.log('end result', result);//4896582
+    console.log('end result', result);
 });
