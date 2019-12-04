@@ -6,7 +6,7 @@ const readLine = require('readline');
 let result = 0
 
 let rl = readLine.createInterface({
-    input: fs.createReadStream('/home/user/advnetofcode/2019/day1/input')
+    input: fs.createReadStream('./input')
 });
 
 rl.on('line', function (line) {
