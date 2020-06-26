@@ -1,4 +1,13 @@
 'use strict';
+var start = process.hrtime();
+
+var elapsed_time = function(note){
+    var precision = 3; // 3 decimal places
+    var elapsed = process.hrtime(start)[1] / 1000000; // divide by a million to get nano to milli
+    console.log(process.hrtime(start)[0] + " s, " + elapsed.toFixed(precision) + " ms - " + note); // print message + time
+    start = process.hrtime(); // reset the timer
+}
+elapsed_time("recieved request");
 
 let lowPoint  = 256310;
 let highPoint = 732736;
@@ -33,3 +42,4 @@ for (let i = lowPoint; i < highPoint; i++) {
     }
 }
 console.log('answer', matchPassword.length);
+elapsed_time("end request");
